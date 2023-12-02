@@ -1,0 +1,39 @@
+/* Navbar.css */
+.navbar {
+    background-color: #333;
+    color: white;
+    /* padding: 10px; */
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+    /* z-index: 1000; */
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+  }
+  
+  .tab {
+    text-decoration: none;
+    color: white;
+  }
+  
+  body {
+    padding-top: 0;
+  }
+  

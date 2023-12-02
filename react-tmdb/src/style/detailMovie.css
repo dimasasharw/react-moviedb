@@ -1,0 +1,136 @@
+.detail-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: auto;
+}
+
+.poster-wrapper {
+    width: 130px;
+    height: 230px;
+    background-color: black;
+    border-radius: 3px;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.poster {
+    width: 120px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.backdrop-container {
+    position: relative;
+}
+
+.backdrop {
+    width: 100%;
+    height: 50%;
+    filter: blur(px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    color: #333;
+    font-weight: 800;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+}
+
+.release-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.overview,
+.additional-info {
+    margin-top: 20px;
+    color: #333;
+}
+
+h3 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* ------------------ */
+
+.title-recommendation {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 55px;
+}
+
+.recommendation-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    align-items: center;
+    /* gap: 7px; */
+    overflow-x: auto;
+}
+
+.recommendation-wrapper {
+    width: 100px;
+    /* max-width: 50%; */
+    color: aliceblue;
+    height: auto;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.recommendation-container .item {
+    width: 100px;
+    height: 150px;
+}
+
+.font {
+    font-size: 10px;
+}
+
+.add-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-buttons button {
+    background-color: #5e281d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.add-buttons button:hover {
+    background-color: #d05f09;
+}
