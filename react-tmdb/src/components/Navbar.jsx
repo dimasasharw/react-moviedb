@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/navbar.css";
 
+
 const Navbar = () => {
+  const navigate = useNavigate()
   const sessionId = localStorage.getItem("sessionId");
 
   const handleLogout = () => {
     localStorage.removeItem("sessionId");
     localStorage.removeItem("accountId");
-
+    navigate('/')
     window.location.reload();
   };
 
