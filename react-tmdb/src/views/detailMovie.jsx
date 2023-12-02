@@ -7,11 +7,12 @@ import formatRuntime from "../helpers/formatRuntime";
 import formatDate from "../helpers/formatDate";
 
 const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
-const navigate = useNavigate()
+// const navigate = useNavigate()
 const DetailMovie = () => {
     const { id } = useParams();
     const [detailMovie, setDetailMovie] = useState(null);
     const [recommendationMovie, setRecommendationMovie] = useState([])
+    const [isLogin, setIsLogin] = useState(false)
 
     useEffect(() => {
         getDetailMovie(id).then((result) => {
@@ -20,6 +21,10 @@ const DetailMovie = () => {
         getRecommendationMovie(id).then((result) => {
             setRecommendationMovie(result)
         })
+        let sessionId = localStorage.getItem("sessionId")
+        if (sessionId) {
+            setIsLogin(true)
+        }
     }, [id]);
 
     if (!detailMovie) {
@@ -75,10 +80,13 @@ const DetailMovie = () => {
                         <p>{`Vote Average: ${formatRating(detailMovie.vote_average)}`}</p>
                         <p>{`Runtime: ${formatRuntime(detailMovie.runtime)}`}</p>
                     </div>
-                    <div className="add-buttons">
-                        <button onClick={handleAddToFavorite}>Add to Favorite</button>
-                        <button onClick={handleAddToWatchlist}>Add to Watchlist</button>
-                    </div>
+                    {isLogin ? (
+                        <div className="add-buttons">
+                            <button onClick={handleAddToFavorite}>Add to Favorite</button>
+                            <button onClick={handleAddToWatchlist}>Add to Watchlist</button>
+                        </div>
+                    ) : ""
+                    }
                 </div>
             </div>
 
