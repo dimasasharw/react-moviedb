@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../style/home.css';
 import { getMovieList, getNowPlaying, getTopRated, searchMovie } from '../api';
-import formatRating from '../helpers/formatRating';
 import formatDate from '../helpers/formatDate';
 import { Link } from "react-router-dom";
+import MovieCard from '../components/movieCard';
 
 const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
 
@@ -38,17 +38,10 @@ export default function Home() {
         if (topRated.length === 0 && searchError) {
             return <div className="error-message">{searchError}</div>;
         }
-        return topRated.map((movie, i) => {
-            return (
-                <Link className="Movie-wrapper" to={`/movie/${movie.id}`} key={i}>
-                    <div className="Movie-title">{movie.title}</div>
-                    <img className="Movie-image" src={`${baseImageUrl}${movie.poster_path}`} alt={movie.title} />
-                    <div className="Movie-date">{formatDate(movie.release_date)}</div>
-                    <div className="Movie-rate">{formatRating(movie.vote_average)}</div>
-                </Link>
-            )
-        })
-    }
+        return topRated.map((movie, i) => (
+            <MovieCard key={i} movie={movie} showDate={true} showRating={true} />
+        ));
+    };
 
     const search = async (q) => {
         if (q.length > 3) {
